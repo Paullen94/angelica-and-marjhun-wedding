@@ -7,307 +7,470 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet"> 
+ 
+<style> 
+ 
+:root{ 
+  --lavender:#b9a0c8; 
+  --lilac:#d7c6df; 
+  --blush:#efc8cf; 
+  --ivory:#fbf8f2; 
+  --ink:#493c48; 
+  --gold:#a88762; 
+  --shadow:0 22px 60px rgba(75,55,75,.16); 
+} 
+ 
+*{ 
+  box-sizing:border-box; 
+} 
+ 
+html{ 
+  scroll-behavior:smooth; 
+} 
+ 
+body{ 
+  margin:0; 
+  color:var(--ink); 
+  background: 
+    radial-gradient( 
+      circle at 20% 10%, 
+      rgba(239,200,207,.24), 
+      transparent 30% 
+    ), 
+    radial-gradient( 
+      circle at 85% 20%, 
+      rgba(185,160,200,.20), 
+      transparent 28% 
+    ), 
+    var(--ivory); 
+  font-family:Montserrat,Arial,sans-serif; 
+} 
+ 
+button, 
+a{ 
+  font:inherit; 
+} 
+ 
+a{ 
+  color:inherit; 
+} 
+ 
+section{ 
+  scroll-margin-top:30px; 
+} 
+ 
+ 
+/* ========================================================= 
+   MUSIC BUTTON 
+========================================================= */ 
+ 
+.music-btn{ 
+  position:fixed; 
+  z-index:1000; 
+  top:18px; 
+  right:18px; 
+  width:52px; 
+  height:52px; 
+  border:0; 
+  border-radius:50%; 
+  background:rgba(255,255,255,.94); 
+  color:#805b7c; 
+  box-shadow:0 8px 25px rgba(50,30,50,.15); 
+  cursor:pointer; 
+  font-size:20px; 
+} 
+ 
+ 
+/* ========================================================= 
+   OPENING 
+========================================================= */ 
+ 
+.opening{ 
+  min-height:100svh; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  padding:45px 15px 55px; 
+  overflow:hidden; 
+ 
+  background-image:url("opening-background.png"); 
+  background-size:cover; 
+  background-position:center center; 
+  background-repeat:no-repeat; 
+} 
+ 
+.opening-inner{ 
+  width:min(1200px,100%); 
+  text-align:center; 
+  display:flex; 
+  flex-direction:column; 
+  align-items:center; 
+  justify-content:center; 
+} 
+ 
+.kicker{ 
+  margin:0 0 12px; 
+  letter-spacing:.22em; 
+  font-size:11px; 
+  color:var(--gold); 
+  font-weight:600; 
+} 
+ 
+.names{ 
+  margin:0; 
+  font-family:"DM Serif Display",serif; 
+  font-size:clamp(42px,9vw,76px); 
+  line-height:.95; 
+  color:#725a70; 
+} 
+ 
+.names span{ 
+  display:block; 
+  font-family:"Cormorant Garamond",serif; 
+  font-size:.55em; 
+  font-style:italic; 
+  margin:5px 0; 
+  color:var(--gold); 
+} 
+ 
+.date-top{ 
+  margin:14px 0 25px; 
+  font-family:"Cormorant Garamond",serif; 
+  font-size:20px; 
+  letter-spacing:.12em; 
+} 
+ 
+ 
+/* ========================================================= 
+   ENVELOPE 
+   The complete couple photo is already inside 
+   envelope-opening.png. 
+ 
+   NO PHOTO UPLOAD. 
+   NO PHOTO OVERLAY. 
+========================================================= */ 
+ 
+.envelope-wrap{ 
+  position:relative; 
+  width:min(1100px,96vw); 
+  margin:0 auto; 
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  filter:drop-shadow( 
+    0 28px 35px rgba(71,48,65,.20) 
+  ); 
+} 
+ 
+.envelope-art{ 
+  width:100%; 
+  height:auto; 
+  display:block; 
+  object-fit:contain; 
+} 
+ 
+ 
+/* ========================================================= 
+   OPEN BUTTON 
+========================================================= */ 
+ 
+.open-button{ 
+  margin-top:18px; 
+  border:1px solid rgba(168,135,98,.55); 
+  background:rgba(255,255,255,.90); 
+  color:#755a70; 
+  padding:13px 30px; 
+  border-radius:999px; 
+  letter-spacing:.12em; 
+  text-transform:uppercase; 
+  font-size:11px; 
+  cursor:pointer; 
+  box-shadow:0 8px 24px rgba(80,55,75,.10); 
+  transition:.25s ease; 
+} 
+ 
+.open-button:hover{ 
+  transform:translateY(-2px); 
+} 
+ 
+.scroll-note{ 
+  margin-top:15px; 
+  font-size:10px; 
+  letter-spacing:.16em; 
+  color:#8d7889; 
+} 
+ 
+ 
+/* ========================================================= 
+   MOBILE 
+========================================================= */ 
+ 
+@media(max-width:700px){ 
+ 
+  .opening{ 
+    min-height:100svh; 
+    padding:55px 5px 35px; 
+  } 
+ 
+  .names{ 
+    font-size:47px; 
+  } 
+ 
+  .envelope-wrap{ 
+    width:99vw; 
+  } 
+ 
+  .open-button{ 
+    margin-top:12px; 
+    padding:12px 25px; 
+    font-size:10px; 
+  } 
+ 
+  .scroll-note{ 
+    font-size:9px; 
+  } 
+ 
+  .details-grid{ 
+    grid-template-columns:1fr; 
+  } 
+ 
+  .countdown{ 
+    grid-template-columns:repeat(2,1fr); 
+  } 
+ 
+  .entourage{ 
+    columns:1; 
+  } 
+ 
+  .prenup-grid{ 
+    grid-template-columns:repeat(2,1fr); 
+  } 
+ 
+  .panel{ 
+    padding:60px 0; 
+  } 
+} 
+ 
+@media(max-width:430px){ 
+ 
+  .opening{ 
+    padding:45px 0 30px; 
+  } 
+ 
+  .envelope-wrap{ 
+    width:100vw; 
+  } 
+ 
+  .music-btn{ 
+    width:46px; 
+    height:46px; 
+    top:12px; 
+    right:12px; 
+  } 
+} 
+ 
+</style> 
+</head> 
+ 
+ 
+<body> 
+ 
+ 
+<!-- ========================================================= 
+     MUSIC 
+========================================================= --> 
+ 
+<button 
+  class="music-btn" 
+  id="musicBtn" 
+  aria-label="Play music" 
+> 
+  ♫ 
+</button> 
+ 
+<audio 
+  id="weddingMusic" 
+  src="wedding-music.mp3" 
+  loop 
+  preload="auto" 
+></audio> 
+ 
+ 
+<!-- ========================================================= 
+     OPENING 
+========================================================= --> 
+ 
+<section 
+  class="opening" 
+  id="opening" 
+> 
+ 
+  <div class="opening-inner"> 
+ 
+    <p class="kicker"> 
+      A WEDDING INVITATION 
+    </p> 
+ 
+    <h1 class="names"> 
+ 
+      ANGELICA MAE 
+ 
+      <span> 
+        &amp; 
+      </span> 
+ 
+      MARJHUN 
+ 
+    </h1> 
+ 
+    <p class="date-top"> 
+      DECEMBER 28, 2026 
+    </p> 
+ 
+ 
+    <div class="envelope-wrap"> 
+ 
+      <img 
+        class="envelope-art" 
+        src="envelope-opening.png" 
+        alt="Angelica Mae and Marjhun wedding invitation envelope" 
+      > 
+ 
+    </div> 
+ 
+ 
+    <button 
+      class="open-button" 
+      id="openInvitation" 
+    > 
+      Click to Open 
+    </button> 
+ 
+ 
+    <div class="scroll-note"> 
+      WITH LOVE, ANGELICA &amp; MARJHUN 
+    </div> 
+ 
+  </div> 
+ 
+</section> 
+ 
+ 
+ 
+ 
+/* ========================================================= 
+   OPEN INVITATION 
+========================================================= */ 
+ 
+document 
+  .getElementById("openInvitation") 
+  .addEventListener( 
+    "click", 
+    async () => { 
+ 
+      try{ 
+        await music.play(); 
+      }catch(e){} 
+ 
+      document 
+        .getElementById("opening") 
+        .style.display = "none"; 
+ 
+      document 
+        .getElementById("invitation") 
+        .classList.add("show"); 
+ 
+      window.scrollTo({ 
+        top:0, 
+        behavior:"smooth" 
+      }); 
+ 
+    } 
+  ); 
+  <!-- =========================================================
+     SCRIPTS
+========================================================= -->
 
-<style>
+<script>
 
-:root{
-  --lavender:#b9a0c8;
-  --lilac:#d7c6df;
-  --blush:#efc8cf;
-  --ivory:#fbf8f2;
-  --ink:#493c48;
-  --gold:#a88762;
-  --shadow:0 22px 60px rgba(75,55,75,.16);
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  color:var(--ink);
-  background:
-    radial-gradient(
-      circle at 20% 10%,
-      rgba(239,200,207,.24),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(185,160,200,.20),
-      transparent 28%
-    ),
-    var(--ivory);
-  font-family:Montserrat,Arial,sans-serif;
-}
-
-button,
-a{
-  font:inherit;
-}
-
-a{
-  color:inherit;
-}
-
-section{
-  scroll-margin-top:30px;
-}
+const musicBtn = document.getElementById("musicBtn");
+const weddingMusic = document.getElementById("weddingMusic");
+const openInvitation = document.getElementById("openInvitation");
 
 
 /* =========================================================
    MUSIC BUTTON
 ========================================================= */
 
-.music-btn{
-  position:fixed;
-  z-index:1000;
-  top:18px;
-  right:18px;
-  width:52px;
-  height:52px;
-  border:0;
-  border-radius:50%;
-  background:rgba(255,255,255,.94);
-  color:#805b7c;
-  box-shadow:0 8px 25px rgba(50,30,50,.15);
-  cursor:pointer;
-  font-size:20px;
-}
+musicBtn.addEventListener("click", async function () {
+
+    if (weddingMusic.paused) {
+
+        try {
+            await weddingMusic.play();
+            musicBtn.textContent = "♫";
+        } catch (error) {
+            console.log("Music could not play:", error);
+        }
+
+    } else {
+
+        weddingMusic.pause();
+        musicBtn.textContent = "🔇";
+
+    }
+
+});
 
 
 /* =========================================================
-   OPENING
+   OPEN INVITATION
+   Envelope → Floral Invitation
 ========================================================= */
 
-.opening{
-  min-height:100svh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:45px 15px 55px;
-  overflow:hidden;
+openInvitation.addEventListener("click", function () {
 
-  background-image:url("opening-background.png");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-}
+    /* Prevent repeated clicks */
+    openInvitation.disabled = true;
 
-.opening-inner{
-  width:min(1200px,100%);
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
+    /* Small button animation */
 
-.kicker{
-  margin:0 0 12px;
-  letter-spacing:.22em;
-  font-size:11px;
-  color:var(--gold);
-  font-weight:600;
-}
-
-.names{
-  margin:0;
-  font-family:"DM Serif Display",serif;
-  font-size:clamp(42px,9vw,76px);
-  line-height:.95;
-  color:#725a70;
-}
-
-.names span{
-  display:block;
-  font-family:"Cormorant Garamond",serif;
-  font-size:.55em;
-  font-style:italic;
-  margin:5px 0;
-  color:var(--gold);
-}
-
-.date-top{
-  margin:14px 0 25px;
-  font-family:"Cormorant Garamond",serif;
-  font-size:20px;
-  letter-spacing:.12em;
-}
+    openInvitation.animate(
+        [
+            {
+                transform: "scale(1)",
+                opacity: 1
+            },
+            {
+                transform: "scale(.94)",
+                opacity: .7
+            },
+            {
+                transform: "scale(1)",
+                opacity: 1
+            }
+        ],
+        {
+            duration: 450,
+            easing: "ease-out"
+        }
+    );
 
 
-/* =========================================================
-   ENVELOPE
-   The complete couple photo is already inside
-   envelope-opening.png.
+    /* Go directly to the new floral invitation */
 
-   NO PHOTO UPLOAD.
-   NO PHOTO OVERLAY.
-========================================================= */
+    setTimeout(function () {
 
-.envelope-wrap{
-  position:relative;
-  width:min(1100px,96vw);
-  margin:0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  filter:drop-shadow(
-    0 28px 35px rgba(71,48,65,.20)
-  );
-}
+        window.location.href = "inside.html";
 
-.envelope-art{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:contain;
-}
+    }, 500);
 
+});
 
-/* =========================================================
-   OPEN BUTTON
-========================================================= */
+</script>
 
-.open-button{
-  margin-top:18px;
-  border:1px solid rgba(168,135,98,.55);
-  background:rgba(255,255,255,.90);
-  color:#755a70;
-  padding:13px 30px;
-  border-radius:999px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  font-size:11px;
-  cursor:pointer;
-  box-shadow:0 8px 24px rgba(80,55,75,.10);
-  transition:.25s ease;
-}
-
-.open-button:hover{
-  transform:translateY(-2px);
-}
-
-.scroll-note{
-  margin-top:15px;
-  font-size:10px;
-  letter-spacing:.16em;
-  color:#8d7889;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:700px){
-
-  .opening{
-    min-height:100svh;
-    padding:55px 5px 35px;
-  }
-
-  .names{
-    font-size:47px;
-  }
-
-  .envelope-wrap{
-    width:99vw;
-  }
-
-  .open-button{
-    margin-top:12px;
-    padding:12px 25px;
-    font-size:10px;
-  }
-
-  .scroll-note{
-    font-size:9px;
-  }
-
+</body>
+</html>
  
-<!-- =========================================================
-     MUSIC
-========================================================= -->
-
-<button
-  class="music-btn"
-  id="musicBtn"
-  aria-label="Play music"
->
-  ♫
-</button>
-
-<audio
-  id="weddingMusic"
-  src="wedding-music.mp3"
-  loop
-  preload="auto"
-></audio>
-
-
-<!-- =========================================================
-     OPENING
-========================================================= -->
-
-<section
-  class="opening"
-  id="opening"
->
-
-  <div class="opening-inner">
-
-    <p class="kicker">
-      A WEDDING INVITATION
-    </p>
-
-    <h1 class="names">
-
-      ANGELICA MAE
-
-      <span>
-        &amp;
-      </span>
-
-      MARJHUN
-
-    </h1>
-
-    <p class="date-top">
-      DECEMBER 28, 2026
-    </p>
-
-
-    <div class="envelope-wrap">
-
-      <img
-        class="envelope-art"
-        src="envelope-opening.png"
-        alt="Angelica Mae and Marjhun wedding invitation envelope"
-      >
-
-    </div>
-
-
-    <button
-      class="open-button"
-      id="openInvitation"
-    >
-      Click to Open
-    </button>
-
-
-    <div class="scroll-note">
-      WITH LOVE, ANGELICA &amp; MARJHUN
-    </div>
-
-  </div>
-
-</section>
-
+THIS IS THE REMAING CODE
