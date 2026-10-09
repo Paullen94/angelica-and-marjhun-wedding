@@ -1,367 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#eaf4fb">
-  <title>Jelai & Jhun | Prenup Gallery</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --powder-blue: #dcecf7;
-      --powder-blue-deep: #b9d4e8;
-      --ivory: #fffdf8;
-      --ink: #455b6b;
-      --muted: #718493;
-      --line: rgba(112, 151, 179, .34);
-      --shadow: 0 12px 32px rgba(70, 104, 128, .14);
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Angelica & Marjhun | Wedding Invitation</title>
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    background-image: url("opening-background.png");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   INVITATION
+========================================================= */
+
+.invitation {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1024px;
+
+    margin: 0 auto;
+
+    line-height: 0;
+}
+
+
+/* =========================================================
+   COMPLETE FLORAL INVITATION IMAGE
+========================================================= */
+
+.invitation-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   CLICKABLE BUTTONS
+========================================================= */
+
+.invitation-button {
+
+    position: absolute;
+
+    z-index: 20;
+
+    display: block;
+
+    background: transparent;
+
+    border: 0;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+/* Subtle desktop hover */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .invitation-button:hover {
+
+        background: rgba(255,255,255,.10);
+
+        transform: scale(1.03);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+}
+
+
+/* =========================================================
+   THE DETAILS
+========================================================= */
+
+.details-button {
+
+    left: 25%;
+
+    top: 55%;
+
+    width: 31%;
+
+    height: 7%;
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp-button {
+
+    left: 62%;
+
+    top: 57%;
+
+    width: 32%;
+
+    height: 8%;
+}
+
+
+/* =========================================================
+   OUR STORY
+========================================================= */
+
+.story-button {
+
+    left: 22%;
+
+    top: 86%;
+
+    width: 31%;
+
+    height: 7%;
+}
+
+
+/* =========================================================
+   PRENUP
+========================================================= */
+
+.prenup-button {
+
+    left: 58%;
+
+    top: 86%;
+
+    width: 31%;
+
+    height: 7%;
+}
+
+
+/* =========================================================
+   BACK TO OPENING
+========================================================= */
+
+.back-button {
+
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 18px;
+
+    left: 18px;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(168,135,98,.55);
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.94);
+
+    color: #765a76;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    line-height: 1.2;
+
+    box-shadow:
+        0 6px 20px rgba(70,45,70,.16);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+.back-button:hover {
+
+    transform: translateY(-2px);
+
+    background: white;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
     body {
-      margin: 0;
-      color: var(--ink);
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--ivory);
-      background-image: url('prenup-background.png');
-      background-repeat: repeat-y;
-      background-position: top center;
-      background-size: 100% auto;
-      background-attachment: fixed;
-    }
-    a { color: inherit; }
 
-    .page-wash {
-      min-height: 100vh;
-      background: rgba(255, 253, 248, .43);
+        background-attachment: scroll;
     }
 
-    .hero {
-      min-height: 64vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 5rem 1.2rem;
-      background: linear-gradient(145deg, rgba(220,236,247,.93), rgba(255,253,248,.92) 55%, rgba(220,236,247,.88));
-      border-bottom: 1px solid var(--line);
-    }
-    .hero-inner { max-width: 850px; }
-    .eyebrow {
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      font-size: .72rem;
-      font-weight: 600;
-      color: #627f95;
-    }
-    h1, h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
-    .hero h1 {
-      font-size: clamp(3.5rem, 10vw, 7.5rem);
-      line-height: .92;
-      margin: 1.2rem 0;
-      color: #526d83;
-    }
-    .hero h1 span { font-style: italic; color: #8aabc4; }
-    .hero p {
-      max-width: 600px;
-      margin: 1.2rem auto;
-      font-size: .9rem;
-      line-height: 1.9;
-      color: #647c8d;
-    }
-    .date-pill {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: .8rem 1.2rem;
-      border: 1px solid rgba(112,151,179,.55);
-      border-radius: 999px;
-      background: rgba(255,253,248,.78);
-      font-size: .72rem;
-      letter-spacing: .13em;
-    }
-    .cta {
-      display: inline-block;
-      margin-top: 1.6rem;
-      padding: .9rem 1.4rem;
-      text-decoration: none;
-      background: #b9d4e8;
-      color: #344f63;
-      border: 1px solid rgba(94,132,158,.25);
-      border-radius: 999px;
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      transition: transform .2s, background .2s;
-    }
-    .cta:hover { transform: translateY(-2px); background: #c9e0f0; }
 
-    .gallery-section {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 5rem 1.25rem 5.5rem;
-      background: rgba(255,253,248,.89);
-      border-left: 1px solid rgba(185,212,232,.4);
-      border-right: 1px solid rgba(185,212,232,.4);
-    }
-    .section-head { text-align: center; margin: 0 auto 2.8rem; }
-    .section-head .eyebrow { color: #6d91aa; }
-    .section-head h2 {
-      font-size: clamp(3.4rem, 8vw, 6.4rem);
-      line-height: .95;
-      margin: .75rem 0 .5rem;
-      color: #668ba5;
-    }
-    .ornament {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .8rem;
-      margin: 1.25rem auto 0;
-      color: #a3c3da;
-      font-size: 1.15rem;
-    }
-    .ornament::before, .ornament::after {
-      content: "";
-      width: min(18vw, 115px);
-      height: 1px;
-      background: var(--line);
+    .back-button {
+
+        top: 12px;
+
+        left: 12px;
+
+        padding: 9px 14px;
+
+        font-size: 9px;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.15rem;
-    }
-    .photo-card {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 3 / 4;
-      min-height: 230px;
-      border-radius: 12px;
-      border: 5px solid var(--ivory);
-      outline: 1px solid rgba(185,212,232,.7);
-      background: var(--powder-blue);
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      padding: 0;
-    }
-    .photo-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .55s ease;
-    }
-    .photo-card:hover img { transform: scale(1.045); }
-    .photo-card:focus-visible { outline: 3px solid #739dbb; outline-offset: 3px; }
 
-    .closing {
-      text-align: center;
-      padding: 4.5rem 1rem;
-      background: linear-gradient(135deg, rgba(220,236,247,.96), rgba(255,253,248,.97));
-      border-top: 1px solid var(--line);
-    }
-    .closing .eyebrow { color: #6d91aa; }
-    .closing h2 {
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      margin: .6rem 0;
-      color: #668ba5;
-    }
-    .closing p { font-size: .78rem; line-height: 1.9; color: var(--muted); }
-    footer {
-      padding: 1.5rem;
-      text-align: center;
-      color: #6f8798;
-      background: rgba(255,253,248,.94);
-      font-size: .65rem;
-      letter-spacing: .08em;
+    .details-button {
+
+        left: 24%;
+
+        top: 55%;
+
+        width: 33%;
+
+        height: 7%;
     }
 
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 20;
-      display: none;
-      place-items: center;
-      padding: 1rem;
-      background: rgba(31, 47, 60, .93);
-    }
-    .lightbox.open { display: grid; }
-    .lightbox img {
-      max-width: min(92vw, 850px);
-      max-height: 84vh;
-      object-fit: contain;
-      border-radius: 5px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
-    }
-    .lightbox button {
-      position: absolute;
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(255,255,255,.35);
-      border-radius: 50%;
-      color: white;
-      background: rgba(255,255,255,.14);
-      cursor: pointer;
-      font-size: 1.5rem;
-    }
-    .close-lightbox { top: 1rem; right: 1rem; }
-    .prev { left: 1rem; top: 50%; transform: translateY(-50%); }
-    .next { right: 1rem; top: 50%; transform: translateY(-50%); }
 
-    @media (max-width: 850px) {
-      body { background-size: auto 100vh; background-attachment: scroll; }
-      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
-      .photo-card { min-height: 200px; }
-      .gallery-section { padding: 4rem .9rem; }
+    .rsvp-button {
+
+        left: 61%;
+
+        top: 57%;
+
+        width: 34%;
+
+        height: 8%;
     }
-    @media (max-width: 480px) {
-      .hero { min-height: 58vh; padding: 4rem 1rem; }
-      .gallery { gap: .55rem; }
-      .photo-card { min-height: 165px; border-width: 3px; border-radius: 8px; }
-      .gallery-section { padding: 3.5rem .65rem; }
-      .section-head { margin-bottom: 1.8rem; }
+
+
+    .story-button {
+
+        left: 20%;
+
+        top: 86%;
+
+        width: 34%;
+
+        height: 7%;
     }
-  </style>
+
+
+    .prenup-button {
+
+        left: 57%;
+
+        top: 86%;
+
+        width: 35%;
+
+        height: 7%;
+    }
+
+}
+
+</style>
+
 </head>
+
+
 <body>
-  <div class="page-wash">
-    <header class="hero">
-      <div class="hero-inner">
-        <div class="eyebrow">Our Prenup Collection</div>
-        <h1>Jelai <span>&</span> Jhun</h1>
-        <p>A romantic collection celebrating our journey toward forever.</p>
-        <div class="date-pill">DECEMBER 28, 2026</div><br>
-        <a class="cta" href="#gallery">VIEW OUR PHOTOS ↓</a>
-      </div>
-    </header>
 
-    <main>
-      <section class="gallery-section" id="gallery">
-        <div class="section-head">
-          <div class="eyebrow">Jelai & Jhun · Prenup</div>
-          <h2>A little gallery<br>of forever</h2>
-          <div class="ornament" aria-hidden="true">❦</div>
-        </div>
 
-        <div class="gallery" id="photoGallery" aria-label="Jelai and Jhun prenup photo gallery"></div>
-      </section>
+<!-- =========================================================
+     BACK TO OPENING
+========================================================= -->
 
-      <section class="closing">
-        <div class="eyebrow">Two hearts, one beautiful story</div>
-        <h2>Forever begins with us</h2>
-        <p>Jelai & Jhun · December 28, 2026</p>
-        <a class="cta" href="#gallery">BACK TO OUR PHOTOS ↑</a>
-      </section>
-    </main>
-    <footer>MADE WITH LOVE FOR JELAI & JHUN</footer>
-  </div>
+<a
+    href="index.html"
+    class="back-button"
+>
+    ← Back to Opening
+</a>
 
-  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Expanded prenup photo">
-    <button class="close-lightbox" id="closeLightbox" aria-label="Close photo">×</button>
-    <button class="prev" id="prevImage" aria-label="Previous photo">‹</button>
-    <img id="lightboxImage" src="" alt="Jelai and Jhun prenup photo enlarged">
-    <button class="next" id="nextImage" aria-label="Next photo">›</button>
-  </div>
 
-  <script>
-    /*
-      GALLERY IMAGE SETUP
-      Put your 30 official photos in a folder named "images" beside this index.html.
-      Name them prenup-01.jpg through prenup-30.jpg, or edit the paths below.
-      Keep prenup-background.png beside index.html for the page background.
-    */
-    const photos = [
-      "images/prenup-01.jpg",
-      "images/prenup-02.jpg",
-      "images/prenup-03.jpg",
-      "images/prenup-04.jpg",
-      "images/prenup-05.jpg",
-      "images/prenup-06.jpg",
-      "images/prenup-07.jpg",
-      "images/prenup-08.jpg",
-      "images/prenup-09.jpg",
-      "images/prenup-10.jpg",
-      "images/prenup-11.jpg",
-      "images/prenup-12.jpg",
-      "images/prenup-13.jpg",
-      "images/prenup-14.jpg",
-      "images/prenup-15.jpg",
-      "images/prenup-16.jpg",
-      "images/prenup-17.jpg",
-      "images/prenup-18.jpg",
-      "images/prenup-19.jpg",
-      "images/prenup-20.jpg",
-      "images/prenup-21.jpg",
-      "images/prenup-22.jpg",
-      "images/prenup-23.jpg",
-      "images/prenup-24.jpg",
-      "images/prenup-25.jpg",
-      "images/prenup-26.jpg",
-      "images/prenup-27.jpg",
-      "images/prenup-28.jpg",
-      "images/prenup-29.jpg",
-      "images/prenup-30.jpg"
-    ];
+<!-- =========================================================
+     FLORAL INVITATION
+========================================================= -->
 
-    const gallery = document.getElementById("photoGallery");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    let currentIndex = 0;
+<main class="invitation">
 
-    photos.forEach((src, index) => {
-      const button = document.createElement("button");
-      button.className = "photo-card";
-      button.type = "button";
-      button.setAttribute("aria-label", `Open prenup photo ${index + 1}`);
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = `Jelai and Jhun prenup photo ${index + 1}`;
-      img.loading = index < 6 ? "eager" : "lazy";
-      img.onerror = () => {
-        img.onerror = null;
-        img.src = "https://placehold.co/800x1100/eaf4fb/668ba5?text=Add+Prenup+Photo+" + String(index + 1).padStart(2, "0");
-      };
-      button.appendChild(img);
-      button.addEventListener("click", () => openLightbox(index));
-      gallery.appendChild(button);
-    });
 
-    function openLightbox(index) {
-      currentIndex = index;
-      lightboxImage.src = photos[currentIndex];
-      lightboxImage.onerror = () => {
-        lightboxImage.onerror = null;
-        lightboxImage.src = "https://placehold.co/800x1100/eaf4fb/668ba5?text=Add+Prenup+Photo+" + String(currentIndex + 1).padStart(2, "0");
-      };
-      lightbox.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
+    <img
+        src="inside-envelope.png"
+        alt="Angelica and Marjhun Wedding Invitation"
+        class="invitation-image"
+    >
 
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-      document.body.style.overflow = "";
-    }
 
-    function movePhoto(direction) {
-      currentIndex = (currentIndex + direction + photos.length) % photos.length;
-      openLightbox(currentIndex);
-    }
+    <!-- =====================================================
+         THE DETAILS
+    ====================================================== -->
 
-    document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
-    document.getElementById("prevImage").addEventListener("click", () => movePhoto(-1));
-    document.getElementById("nextImage").addEventListener("click", () => movePhoto(1));
-    lightbox.addEventListener("click", event => {
-      if (event.target === lightbox) closeLightbox();
-    });
-    document.addEventListener("keydown", event => {
-      if (!lightbox.classList.contains("open")) return;
-      if (event.key === "Escape") closeLightbox();
-      if (event.key === "ArrowLeft") movePhoto(-1);
-      if (event.key === "ArrowRight") movePhoto(1);
-    });
-  </script>
+    <a
+        href="details.html"
+        class="invitation-button details-button"
+        aria-label="The Details"
+        title="The Details"
+    ></a>
+
+
+    <!-- =====================================================
+         RSVP
+    ====================================================== -->
+
+    <a
+        href="rsvp.html"
+        class="invitation-button rsvp-button"
+        aria-label="RSVP"
+        title="RSVP"
+    ></a>
+
+
+    <!-- =====================================================
+         OUR STORY
+    ====================================================== -->
+
+    <a
+        href="story.html"
+        class="invitation-button story-button"
+        aria-label="Our Story"
+        title="Our Story"
+    ></a>
+
+
+    <!-- =====================================================
+         PRENUP
+    ====================================================== -->
+
+    <a
+        href="prenup.html"
+        class="invitation-button prenup-button"
+        aria-label="Prenup"
+        title="Prenup"
+    ></a>
+
+
+</main>
+
+
 </body>
+
 </html>
